@@ -1,0 +1,39 @@
+body {
+    font-family: "Montserrat", "sans-serif";
+}
+a .logo_img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+a .logo_img:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .logo_img{
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo_img {
+        width: 60px;
+    }
+}
+.hero-section{
+    padding-top: 80px;
+}
+.hero-section h1{
+    font-weight: 700;
+    color: #ffff;
+}
+.hero-section span{
+    font-weight: 400;
+    font-size: 28px;
+    color: #ffff;
+}
