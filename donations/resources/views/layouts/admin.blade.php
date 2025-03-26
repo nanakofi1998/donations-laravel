@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from w3crm.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2024 16:26:19 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +20,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
 
     <link href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/fullcalendar/css/main.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
@@ -376,6 +375,7 @@
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script>
+    <script src="{{asset('assets/vendor/fullcalendar/js/main.min.js')}}"></script>
 
     <!-- Dashboard 1 -->
     <script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script>
@@ -411,6 +411,14 @@
 
     <!--Custom Js--->
     <script src="{{asset('assets/js/styleSwitcher.jss')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets/vendor/moment/moment.min.js')}}"></script>
+
+    <script src="{{asset('assets/vendor/fullcalendar/js/main.min.js')}}"></script>
+	<script src="{{asset('assets/js/plugins-init/fullcalendar-init.js')}}"></script>
+	<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    
+
 
 
 

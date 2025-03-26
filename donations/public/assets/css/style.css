@@ -32053,16 +32053,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 500;
     border: 0 !important;
     border-radius: 0.25rem; }
-  .status-select [title="Testing"] {
-    background-color: #ffeccc !important;
-    color: #FF9F00 !important; }
-  .status-select [title="Pending"], .status-select [title="Low"] {
+  .status-select [title="Inactive"] {
     background-color: #ffdede !important;
     color: #FF5E5E !important; }
+  .status-select [title="Pending"], .status-select [title="Low"] {
+    background-color: #f2e0c2 !important;
+    color: #F7B00F !important; }
   .status-select [title="In Progress"] {
     background-color: rgba(187, 107, 217, 0.1) !important;
     color: #BB6BD9 !important; }
-  .status-select [title="Complete"], .status-select [title="High"] {
+  .status-select [title="Active"], .status-select [title="High"] {
     background-color: #daf5e6 !important;
     color: #3AC977 !important; }
   .status-select [title="Medium"] {

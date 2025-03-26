@@ -53,7 +53,7 @@ function fullCalender(){
 			  arg.draggedEl.parentNode.removeChild(arg.draggedEl);
 			}
 		  },
-		  initialDate: '2021-02-13',
+		  initialDate: '2025-02-12',
 			  weekNumbers: true,
 			  navLinks: true, // can click day/week names to navigate views
 			  editable: true,
@@ -63,17 +63,6 @@ function fullCalender(){
 				{
 				  title: 'All Day Event',
 				  start: '2021-02-01'
-				},
-				{
-				  title: 'Long Event',
-				  start: '2021-02-07',
-				  end: '2021-02-10',
-				  className: "bg-danger"
-				},
-				{
-				  groupId: 999,
-				  title: 'Repeating Event',
-				  start: '2021-02-09T16:00:00'
 				},
 				{
 				  groupId: 999,
