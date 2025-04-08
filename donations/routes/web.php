@@ -3,5 +3,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('admin.tasks_appointments');
+    return view('admin.institution_add');
 });
