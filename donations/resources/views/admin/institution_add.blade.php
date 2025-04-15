@@ -10,12 +10,12 @@
             <li class="breadcrumb-item active"><a href="javascript:void(0)">Institution - Add an Institution</a></li>
         </ol>
     </div>
-    <div class="container-fluid">
+    <div class="container bg-white p-4 rounded shadow-sm">  
         <!-- row -->
         
     <form action="" method="POST" enctype="multipart/form-data">
         <h3>Institution Details</h3>
-        <div class="row">
+        <div class="row ">
             <div class="col-md-6 mb-3">
                 <label for="institution_name">Institution Name</label>
                 <input type="text" id="institution_name" name="institution_name" class="form-control" placeholder="Institution Name" required>

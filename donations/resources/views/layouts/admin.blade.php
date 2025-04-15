@@ -13,6 +13,8 @@
     <meta property="og:description" content="Bsystems Donor Management System">
     <meta property="og:image" content="social-image.png">
     <meta name="format-detection" content="telephone=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <!-- PAGE TITLE HERE -->
     <title>Bsystems || Donor Management System</title>
@@ -233,8 +235,8 @@
                             <span class="nav-text">Donors</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="task.html">Add Donor</a></li>
-                            <li><a href="task-summary.html">Manage Donor</a></li>
+                            <li><a href="{{ route('add_donors_create') }}">Add Donor</a></li>
+                            <li><a href="{{ route('manage_donors')}}">Manage Donor</a></li>
                         </ul>
                     </li>
                     <li><a href="core-hr.html" class="has-arrow" aria-expanded="false">
@@ -257,7 +259,7 @@
                             <span class="nav-text">Campaigns</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="task.html">Add Campaign</a></li>
+                            <li><a href="{{ route('add_campaign')}}">Add Campaign</a></li>
                             <li><a href="task-summary.html">Manage Campaign</a></li>
                         </ul>
                     </li>
@@ -403,7 +405,7 @@
     <!-- Vectormap -->
     <script src="{{ asset('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-    <script src="{{ asset('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>   
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/js/demo.js') }}"></script>
@@ -418,8 +420,8 @@
     <script src="{{asset('assets/vendor/fullcalendar/js/main.min.js')}}"></script>
 	<script src="{{asset('assets/js/plugins-init/fullcalendar-init.js')}}"></script>
 	<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('assets/js/donor.js')}}"></script>
     
-
 
 
 

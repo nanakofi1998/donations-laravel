@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('donors', function (Blueprint $table) {
             $table->id();
+            $table->string('f_name');
+            $table->string('l_name');
+            $table->string('donor_email')->unique();
+            $table->string('organization_name')->nullable();
+            $table->decimal('donor_amount', 10, 2);
+            $table->enum('donation_preference', ['one_time', 'recurring', 'crowd_funding'])->default('one_time');
+            $table->string('donor_phone')->nullable();
+            $table->boolean('anonymous')->default(false);
+            $table->text('donor_message')->nullable();
             $table->timestamps();
         });
     }

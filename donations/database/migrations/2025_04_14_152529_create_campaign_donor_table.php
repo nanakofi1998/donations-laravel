@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('beneficiaries', function (Blueprint $table) {
+        Schema::create('campaign_donor', function (Blueprint $table) {
             $table->id();
-            $table->string('beneficiary_name')->nullable();
+            $table->foreignId('donor_id')->constrained('donors')->onDelete('cascade');
+            $table->foreignId('campaign_id')->constrained('campaigns')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('beneficiaries');
+        Schema::dropIfExists('campaign_donor');
     }
 };

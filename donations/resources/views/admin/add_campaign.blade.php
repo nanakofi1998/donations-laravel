@@ -11,13 +11,13 @@
             </ol>
         </nav>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
+            <h2 class="text-primary"><strong>Campaigns</strong></h2>
             <div class="col-xl-12 bg-white rounded-3">
                 <div class="row">
-                    <h2 class="text-primary"><strong>Campaigns</strong></h2>
                     <!-- Card List Start  -->
-                    <div class="col-md-4 mx-auto mb-4 text-center mt-4">
+                    <div class=" col-12 col-md-4 mx-auto mb-4 text-center mt-4">
                         <div class="card shadow-lg p-3">
                             <div class="card-body">
                                 <h3 class="card-title">Create A New Campaign</h3>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-4 mx-auto mb-4 text-center mt-4">
+                    <div class="col-12 col-md-4 mx-auto mb-4 text-center mt-4">
                         <div class="card shadow-lg p-3">
                             <div class="card-body">
                                 <h3 class="card-title">View Campaign Analytics</h3>
