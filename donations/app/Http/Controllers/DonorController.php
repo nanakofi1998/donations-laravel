@@ -6,16 +6,43 @@ use App\Http\Controllers\Controller;
 use App\Models\Donor;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class DonorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request)
     {
         // Fetch all donors to display in the view
         $donors = Donor::with('campaigns')->get();
+        // CSV export 
+        if ($request -> has('export') && $request->export === 'csv') {
+            $filename = 'donor_export_'.now()->format('Ymd_His').'.csv';
+            $headers = ['Content-Type' => 'text/csv'];
+    
+            $callback = function () use($donors) {
+                $file = fopen('php://output', 'w');
+                fputcsv($file, ['First Name', 'Last Name', 'Phone', 'Email', 'Preference', 'Campaigns']);
+
+            foreach ($donors as $donor) {
+                fputcsv($file, [
+                    $donor -> f_name,
+                    $donor->l_name,
+                    $donor->donor_phone,
+                    $donor->donor_email,
+                    $donor->donation_preference,
+                    $donor->campaigns->pluck('campaign_name')->join(', '),
+                ]);
+            };
+    
+            fclose($file);
+            };
+            return Response::stream($callback, 200, array_merge($headers, [
+                'Content-Desposition' => "attachment; filename=\"$filename\"",
+            ]));
+        };
         // Pass the donors to the view
         return view('admin.manage_donors', compact('donors'));
     }
@@ -65,7 +92,7 @@ class DonorController extends Controller
         if (!empty($validated['campaign_id'])) {
             $donor->campaigns()->attach($validated['campaign_id']);
         }
-        return back()->withInput([])->with('success', 'Donor added successfully!');
+        return redirect()->back()->withInput([])->with('success', 'Donor added successfully!');
     }
 
     /**

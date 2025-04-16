@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+ 
 <div class="content-body">
     <div class="page-titles">
             <ol class="breadcrumb">
@@ -106,5 +106,9 @@
         </div>
     </div>
 </div>
-    
+@endsection
+
+
+@section('scripts')
+<script src="{{ asset('assets/js/donor_add.js') }}"></script>
 @endsection

@@ -372,6 +372,13 @@
     <!--**********************************
         Scripts
     ***********************************-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+    <script>
+        const successMessage = @json(session('success'));
+    </script>
+    @endif
+    @yield('scripts')
     <!-- Required vendors -->
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
@@ -414,7 +421,6 @@
     <!--Custom Js--->
     <script src="{{asset('assets/js/styleSwitcher.jss')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('assets/vendor/moment/moment.min.js')}}"></script>
 
     <script src="{{asset('assets/vendor/fullcalendar/js/main.min.js')}}"></script>
@@ -422,7 +428,6 @@
 	<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{asset('assets/js/donor.js')}}"></script>
     
-
 
 
 </body>
