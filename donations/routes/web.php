@@ -5,7 +5,7 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\CampaignController;
 
 Route::get('/', function () {
-    return view('admin.add_campaign');
+    return view('admin.dashboard');
 });
 // Routes for Donors
 Route::get('/donors', [DonorController::class, 'index'])->name('manage_donors');

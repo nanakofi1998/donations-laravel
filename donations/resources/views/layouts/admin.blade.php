@@ -378,7 +378,13 @@
         const successMessage = @json(session('success'));
     </script>
     @endif
+    @if (session('error'))
+    <script>
+        const errorMessage = @json(session('error'));
+    </script>
+    @endif
     @yield('scripts')
+    <script src="{{asset('assets/js/donor_delete.js')}}"></script>
     <!-- Required vendors -->
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>

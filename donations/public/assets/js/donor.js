@@ -16,7 +16,7 @@
                 document.getElementById('edit-phone').value = button.dataset.phone;
                 document.getElementById('edit-email').value = button.dataset.email;
                 document.getElementById('edit-preference').value = button.dataset.preference;
-                document.getElementById('edit-org').value = button.dataset.organization;
+                document.getElementById('edit-inst').value = button.dataset.institution_name;
 
                 form.action = `/donors/${id}`;
             });

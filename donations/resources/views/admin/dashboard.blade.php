@@ -69,7 +69,7 @@
 													xmlns="http://www.w3.org/2000/svg">
 													<rect width="10" height="10" rx="3" fill="var(--secondary)" />
 												</svg>
-												Not Start
+												Cancelled
 											</li>
 										</ul>
 									</div>
@@ -171,7 +171,7 @@
 							<div class="col-xl-4 col-md-6 up-shd">
 								<div class="card">
 									<div class="card-header pb-0 border-0">
-										<h4 class="heading mb-0">Platform Revenue</h4>
+										<h4 class="heading mb-0">Donation Metrics</h4>
 										<select class="default-select status-select normal-select">
 											<option value="Today">This Week</option>
 											<option value="Week">This Month</option>
@@ -925,7 +925,7 @@
 					<div class="col-xl-3 col-md-6 up-shd">
 						<div class="card">
 							<div class="card-header border-0 pb-1">
-								<h4 class="heading mb-0">Upcoming Schedules</h4>
+								<h4 class="heading mb-0">Upcoming Events</h4>
 							</div>
 							<div class="card-body schedules-cal p-2">
 								<input type="text" class="form-control d-none" id="datetimepicker1">

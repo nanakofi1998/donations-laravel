@@ -48,10 +48,10 @@
                                                             <tr>
                                                                 <th>Name</th>
                                                                 <th>Preference</th>
-                                                                <th>Org. Name</th>
+                                                                <th>Inst. Name</th>
                                                                 <th>Campaign</th>
                                                                 <th>Phone</th>
-                                                                <th>Email</th>
+                                                                <th>Status</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -86,7 +86,7 @@
                                                                          >
                                                                         <i class="fas fa-pencil-alt"></i>
                                                                         </button>
-                                                                        <form action=" {{ route('delete_donors', $donor->id) }}" method="POST" class="delete-form" onsubmit="return confirm('Are you sure you want to delete this donor?')">
+                                                                        <form action=" {{ route('delete_donors', $donor->id) }}" method="POST" class="delete-form">
                                                                             @csrf
                                                                             @method('DELETE')
                                                                             <button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>

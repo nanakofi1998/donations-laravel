@@ -13,9 +13,9 @@ class CampaignController extends Controller
     public function index()
     {
         // Fetch all campaigns to display in the dropdown
-        $campaigns = Campaign::all();
+       // $campaigns = Campaign::all();
         // Pass the campaigns to the view
-        return view('admin.add_campaign', compact('campaigns'));
+        return view('admin.add_campaign', /*compact('campaigns')*/);
     }
 
     /**

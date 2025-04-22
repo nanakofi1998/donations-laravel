@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 use App\Models\Donor;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class DonorController extends Controller
             fclose($file);
             };
             return Response::stream($callback, 200, array_merge($headers, [
-                'Content-Desposition' => "attachment; filename=\"$filename\"",
+                'Content-Disposition' => "attachment; filename=\"$filename\"",
             ]));
         };
         // Pass the donors to the view
@@ -64,59 +65,51 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request -> validate ([
-            'f_name' => 'required|string|max:255',
-            'l_name' => 'required|string|max:255',
-            'donor_email' => 'required|email|unique:donors,donor_email',
-            'organization_name' => 'nullable|string|max:255',
-            'donor_amount' => 'required|numeric|min:0',
-            'donation_preference' => 'required|in:one_time,recurring,crowd_funding',
-            'donor_phone' => 'nullable|string|max:15',
-            'anonymous' => 'nullable|boolean',
-            'donor_message' => 'nullable|string|max:1000',
-            'campaign_id' => 'nullable|exists:campaigns,id',
-        ]);
+        dd($request->all());
+       $validated = $request->validate([
+         'donor_type' => ['required', Rule::in(['individual', 'institution'])],
+         'f_name' => ['required_if:donor_type,individual','string','max:255'],
+         'l_name' => ['required_if:donor_type,individual','string','max:255'],
+         'institution_name' => ['required_if:donor_type,institution', 'string','max:255'],
+         'institution_address' => ['required_if:donor_type,institution', 'string', 'max:255'],
+         'email' => ['required','email'],
+         'donor_amount' => ['required','numeric','min:0'],
+         'donation_preference' => ['required', Rule::in(['one_time', 'recurring'])],
+         'campaign_id' => ['nullable', 'integer', 'exists:campaigns,id'],
+         'donor_phone' => ['nullable', 'string', 'max:15'],
+         'donor_message' => ['nullable','string', 'max:65535'],
+         'anonymous' => ['nullable','boolean'],
+       ]);
+       $dataToSave = [
+         'donor_type' => $validated['donor_type'],
+         'f_name' => $validated['f_name'],
+         'l_name' => $validated['l_name'],
+         'institution_name' => $validated['institution_name'],
+         'institution_address' => $validated['institution_address'],
+         'email' => $validated['email'],
+         'donor_amount' => $validated['donor_amount'],
+         'donation_preference' => $validated['donation_preference'],
+         'campaign_id' => $validated['campaign_id'] ?? null,
+         'donor_phone' => $validated['donor_phone'] ?? null,
+         'donor_status' => 'active',
+         'donor_message' => $validated['donor_message'] ?? null,
+         'anonymous' => $validated['anonymous'],
+       ];
 
-        $donor = Donor::create([
-            'f_name' => $validated['f_name'],
-            'l_name' => $validated['l_name'],   
-            'donor_email' => $validated['donor_email'],
-            'organization_name' => $validated['organization_name'],
-            'donor_amount' => $validated['donor_amount'],
-            'donation_preference' => $validated['donation_preference'],
-            'donor_phone' => $validated['donor_phone'],
-            'anonymous' => $validated['anonymous'] ?? false,
-            'donor_message' => $validated['donor_message'],
-        ]);
-
-        if (!empty($validated['campaign_id'])) {
-            $donor->campaigns()->attach($validated['campaign_id']);
-        }
-        return redirect()->back()->withInput([])->with('success', 'Donor added successfully!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        // Fetch all campaigns to display in the dropdown
-        $campaigns = Campaign::all();
-        // Pass the campaigns to the view
-        return view('admin.manage_donors', compact('campaigns'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        // Fetch the donor by ID to edit
-        $donor = Donor::findOrFail($id);
-        // Fetch all campaigns to display in the dropdown
-        $campaigns = Campaign::all();
-        // Pass the donor and campaigns to the view
-        return back()->with  ('success', 'Donor details edited successfully'); 
+       if($validated['donor_type'] === 'individual') {
+         $dataToSave['f_name'] = $validated['f_name'];
+         $dataToSave['l_name'] = $validated['l_name'];
+       } elseif($validated['donor_type'] === 'institution') {
+         $dataToSave['institution_name'] = $validated['institution_name'];
+         $dataToSave['institution_address'] = $validated['institution_address'];
+       }
+         // Create a new donor record in the database
+         try {
+             $donor = Donor::create($dataToSave);
+             return redirect()->route('admin.add_donors_create')->with('success', 'Donor created successfully!');
+         } catch (\Exception $e) {
+             return redirect()->back()->with('error', 'Failed to create donor: ' . $e->getMessage());
+         }
     }
 
     /**
