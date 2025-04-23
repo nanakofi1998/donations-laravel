@@ -3,24 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Donor;
 
 class Campaign extends Model
 {
     protected $fillable = [
         'campaign_name',
-        'campaign_description',
-        'goal_amount',
+        'campaign_type',
+        'funding_goal',
         'start_date',
         'end_date',
+        'campaign_image',
+        'campaign_contact_person',
+        'campaign_contact_email',
+        'campaign_description',
         'status',
     ];
 
-    public function donors()
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
+    public function donors() 
     {
-        return $this->belongsToMany(Donor::class, 'campaign_donor', 'campaign_id', 'donor_id');
-    }
-    public function getStatusAttribute($value)
-    {
-        return $value === 1 ? 'active' : 'inactive';
+        return $this->hasMany(Donor::class);
     }
 }

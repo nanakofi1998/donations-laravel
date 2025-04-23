@@ -22,7 +22,11 @@ class Donor extends Model
         'campaign_id',
     ];
 
-    public function campaigns(): BelonsTo
+    protected $casts = [
+        'anonymous' => 'boolean',
+    ];
+
+    public function campaigns(): BelongsTo
     {
         return $this->belongsTo(Campaign::class, 'campaign_id');
     }

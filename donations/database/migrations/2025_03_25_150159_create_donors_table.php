@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('donors', function (Blueprint $table) {
@@ -22,18 +19,16 @@ return new class extends Migration
             $table->enum('donation_preference', ['one_time', 'recurring'])->default('one_time');
             $table->string('donor_phone')->nullable();
             $table->enum('donor_type', ['individual', 'institution'])->default('individual');
-            $table->enum('donor_status', ['active', 'inactive'])->default('inactive');
+            $table->enum('donor_status', ['active', 'inactive'])->default('active');
             $table->boolean('anonymous')->default(false);
             $table->text('donor_message')->nullable();
             $table->unsignedBigInteger('campaign_id')->nullable();
             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('donors');

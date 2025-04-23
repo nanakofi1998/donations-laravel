@@ -36,12 +36,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <!-- Summernote CSS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+<!-- Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     <!-- tagify-css -->
     <link href="{{ asset('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
 
     <!-- Style css -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
 
 </head>
 
@@ -384,9 +390,11 @@
     </script>
     @endif
     @yield('scripts')
+    <script src="{{asset('assets/js/campaign_alert.js')}}"></script>
     <script src="{{asset('assets/js/donor_delete.js')}}"></script>
     <!-- Required vendors -->
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script>
@@ -432,10 +440,28 @@
     <script src="{{asset('assets/vendor/fullcalendar/js/main.min.js')}}"></script>
 	<script src="{{asset('assets/js/plugins-init/fullcalendar-init.js')}}"></script>
 	<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-    <script src="{{asset('assets/js/donor.js')}}"></script>
-    
+    <script src="{{asset('assets/js/donor.js')}}"></script>    
 
+    <script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            placeholder: 'Type your message here...',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    });
+    </script>
 
+        
 </body>
 
 </html>

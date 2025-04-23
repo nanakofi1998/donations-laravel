@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (individualRadio.checked) {
             individualFields.style.display = 'block';
             institutionFields.style.display = 'none';
-
-            // Enable individual fields, disable institution fields
-            individualAllInputs.forEach(input => input.disabled = false);
-            institutionAllInputs.forEach(input => input.disabled = true);
-
+    
+            // Handle required attributes instead of disabling
+            individualRequiredInputs.forEach(input => input.setAttribute('required', ''));
+            institutionRequiredInputs.forEach(input => input.removeAttribute('required'));
+    
         } else { // Institution is checked
             individualFields.style.display = 'none';
             institutionFields.style.display = 'block';
-
-            // Disable individual fields, enable institution fields
-            individualAllInputs.forEach(input => input.disabled = true);
-            institutionAllInputs.forEach(input => input.disabled = false);
+    
+            // Handle required attributes instead of disabling
+            institutionRequiredInputs.forEach(input => input.setAttribute('required', ''));
+            individualRequiredInputs.forEach(input => input.removeAttribute('required'));
         }
     }
 

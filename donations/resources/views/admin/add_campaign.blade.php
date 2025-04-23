@@ -53,69 +53,70 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" class="row">
+                                    <form action="{{ route ('add_campaign.store')}}" method="POST" enctype="multipart/form-data" class="row">
+                                        @csrf
                                         <div class="col-md-12 mb-3">
                                             <label for="beneficiary_name">Campaign Name <span
                                                     class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="beneficiary_name" placeholder="Enter Campaign Name">
+                                            <input input="text" type="text" class="form-control" name="campaign_name" placeholder="Enter Campaign Name">
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">Campaign Type <span
                                                     class="text-danger">*</span></label>
-                                            <select id="healthcare_condition" class="form-select wide">
-                                                <option selected>Select Campaign Type</option>
-                                                <option>Education</option>
-                                                <option>Healthcare</option>
-                                                <option>Animalcare</option>
-                                                <option>Social Welfare</option>
-                                                <option>Emergency Relief</option>
-                                                <option>Environmental Protection</option>
-                                                <option>Community Development</option>
-                                                <option>Persons with Disability</option>
-                                                <option>Single Patient Support</option>
+                                            <select class="form-select wide" name="campaign_type" >
+                                                <option disabled selected>Select Campaign Type</option>
+                                                <option value="education">Education</option>
+                                                <option value="healthcare">Healthcare`</option>
+                                                <option value="animal-care">Animal Care</option>
+                                                <option value="social-welfare">Social Welfare</option>
+                                                <option value="emergency-relief">Emergency Relief</option>
+                                                <option value="environmental-protection">Environmental Protection</option>
+                                                <option value="community-development">Community Development</option>
+                                                <option value="person-with-disability">Person with Disability</option>
+                                                <option value="single-patient-support">Single Patient Support</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="beneficiary_name">Fundraising Goal <span class="text-danger">*</span></label>
+                                            <label>Fundraising Goal <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <span class="input-group-text">GH₵</span>
-                                                <input type="number" class="form-control" id="beneficiary_name" placeholder="0.00">
+                                                <input type="number" class="form-control" name="funding_goal" placeholder="0.00">
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="beneficiary_name">Start Date <span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="start_date">
+                                            <input type="date" class="form-control" id="start_date" name="start_date">
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">End Date <span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="end_date">
+                                            <input type="date" class="form-control" id="end_date" name="end_date">
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="formFile">Upload Campaign Image <span class="text-danger"><small>* file should not be more than 4MB</small></span></label>
-                                            <input type="file" class="form-control" name="" id="formFile" accept=".png, .jpg, .jpeg">
+                                            <input type="file" class="form-control" name="campaign_image" id="formFile" accept=".png, .jpg, .jpeg">
                                             
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="beneficiary_name">Contact Email <span
                                                     class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="beneficiary_name"
+                                            <input type="text" class="form-control" name="campaign_contact_email"
                                                 placeholder="Enter contact person email">
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="beneficiary_name">Contact Person Phone <span
                                                     class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="beneficiary_name"
+                                            <input type="text" class="form-control" name="campaign_contact_person"
                                                 placeholder="Enter contact person phone number">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="beneficiary_name">Description <span
                                                     class="text-info" style="font-size: 10px">optional</span></label>
-                                            <textarea type="text-area" class="form-control" id="education_description"></textarea>
+                                            <textarea type="text-area" class="form-control" id="summernote" name="campaign_description"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-outline-primary">Add Campaign</button>
                                         </div>
                                     </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-primary">Add Campaign</button>
                                 </div>
                             </div>
                         </div>
@@ -138,5 +139,4 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 </style>
-
 @endsection

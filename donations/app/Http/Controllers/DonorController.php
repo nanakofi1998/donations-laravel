@@ -45,7 +45,7 @@ class DonorController extends Controller
             ]));
         };
         // Pass the donors to the view
-        return view('admin.manage_donors', compact('donors'));
+        return view('admin.manage_donors', compact('donors', 'campaigns'));
     }
 
     /**
@@ -65,14 +65,14 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-       $validated = $request->validate([
+        
+       $validated = $request->validateWithBag( 'donors',[
          'donor_type' => ['required', Rule::in(['individual', 'institution'])],
          'f_name' => ['required_if:donor_type,individual','string','max:255'],
          'l_name' => ['required_if:donor_type,individual','string','max:255'],
          'institution_name' => ['required_if:donor_type,institution', 'string','max:255'],
          'institution_address' => ['required_if:donor_type,institution', 'string', 'max:255'],
-         'email' => ['required','email'],
+         'email' => ['required','email', 'unique:donors,email'],
          'donor_amount' => ['required','numeric','min:0'],
          'donation_preference' => ['required', Rule::in(['one_time', 'recurring'])],
          'campaign_id' => ['nullable', 'integer', 'exists:campaigns,id'],
@@ -82,10 +82,10 @@ class DonorController extends Controller
        ]);
        $dataToSave = [
          'donor_type' => $validated['donor_type'],
-         'f_name' => $validated['f_name'],
-         'l_name' => $validated['l_name'],
-         'institution_name' => $validated['institution_name'],
-         'institution_address' => $validated['institution_address'],
+         'f_name' => $validated['f_name'] ?? null,
+         'l_name' => $validated['l_name'] ?? null,
+         'institution_name' => $validated['institution_name'] ?? null,
+         'institution_address' => $validated['institution_address'] ?? null,
          'email' => $validated['email'],
          'donor_amount' => $validated['donor_amount'],
          'donation_preference' => $validated['donation_preference'],
@@ -93,7 +93,7 @@ class DonorController extends Controller
          'donor_phone' => $validated['donor_phone'] ?? null,
          'donor_status' => 'active',
          'donor_message' => $validated['donor_message'] ?? null,
-         'anonymous' => $validated['anonymous'],
+         'anonymous' => $validated['anonymous'] ?? false,
        ];
 
        if($validated['donor_type'] === 'individual') {
@@ -106,9 +106,9 @@ class DonorController extends Controller
          // Create a new donor record in the database
          try {
              $donor = Donor::create($dataToSave);
-             return redirect()->route('admin.add_donors_create')->with('success', 'Donor created successfully!');
+             return redirect()->back()->withInput([])->with('successMessage', 'Donor created successfully!');
          } catch (\Exception $e) {
-             return redirect()->back()->with('error', 'Failed to create donor: ' . $e->getMessage());
+             return redirect()->back()->with('errorMessage', 'Failed to create donor: ' . $e->getMessage());
          }
     }
 

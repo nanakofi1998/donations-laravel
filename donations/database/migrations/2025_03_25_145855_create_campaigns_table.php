@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('campaign_image');
             $table->string('campaign_contact_person')->nullable();
             $table->string('campaign_contact_email')->nullable();
-            $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
-            $table->text('campaign_description')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->text('campaign_description');
             $table->timestamps();
         });
     }
