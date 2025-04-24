@@ -378,20 +378,9 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if (session('success'))
-    <script>
-        const successMessage = @json(session('success'));
-    </script>
-    @endif
-    @if (session('error'))
-    <script>
-        const errorMessage = @json(session('error'));
-    </script>
-    @endif
     @yield('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('assets/js/campaign_alert.js')}}"></script>
-    <script src="{{asset('assets/js/donor_delete.js')}}"></script>
     <!-- Required vendors -->
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>

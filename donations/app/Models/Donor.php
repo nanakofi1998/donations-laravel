@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Donor extends Model
 {
@@ -41,7 +42,7 @@ class Donor extends Model
     public function getDisplayNameAttribute()
     {
         if ($this->donor_type === 'individual') {
-            return $this->anonymous ? 'Anonymous' : $this->getFullNameAttribute() ?? 'Individual Donor';
+            return $this->anonymous ? 'Anonymous' : $this->full_name ?? 'Individual Donor';
         } elseif ($this->donor_type === 'institution') {
             return $this->anonymous ? 'Anonymous' : $this->institution_name ?? 'Institution Donor';
         } else {

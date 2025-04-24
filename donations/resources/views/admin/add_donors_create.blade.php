@@ -134,4 +134,48 @@
 
 @section('scripts')
 <script src="{{ asset('assets/js/donor_add.js') }}"></script>
+
+@if (session('success'))
+<script>
+    Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 15000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+        title: "Donor Created Successfully",
+        icon: "success",
+        text: "{{session('success') }}",
+        iconColor: '#3085d6',
+        animated: true,
+        background: '#fff',
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 15000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+        title: "Error",
+        icon: "error",
+        text: "{{session('error') }}",
+        iconColor: '#3085d6',
+        animated: true,
+        background: '#fff',
+    });
+</script>
+@endif
 @endsection
