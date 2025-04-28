@@ -23,9 +23,9 @@ class CampaignController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function manage()
     {
-        //
+        return view('admin.manage_campaign');
     }
 
     /**
@@ -53,7 +53,7 @@ class CampaignController extends Controller
         }
         Campaign::create($data);
 
-        return redirect()->route('add_campaign')->with('successMessage', 'Campaign created successfully!');
+        return redirect()->route('add_campaign')->with('success', 'Campaign created successfully!');
     }
 
     /**
@@ -61,7 +61,7 @@ class CampaignController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**

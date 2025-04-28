@@ -29,4 +29,9 @@ class Campaign extends Model
     {
         return $this->hasMany(Donor::class);
     }
+    public function beneficiaries()
+    {
+        return $this->belongsToMany(Beneficiary::class, 'campaign_beneficiary', 'campaign_id', 'beneficiary_id')
+            ->withTimestamps();
+    }
 }

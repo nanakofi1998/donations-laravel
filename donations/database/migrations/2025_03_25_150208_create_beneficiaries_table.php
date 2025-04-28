@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('beneficiaries', function (Blueprint $table) {
             $table->id();
-            $table->string('beneficiary_name')->nullable();
+            $table->string('beneficiary_name');
+            $table->enum('beneficiary_type',['education','healthcare','animal-care','social-welfare','emergency-relief','environmental-protection','community-development','persons-with-disability','single-patient-support']);
+            $table->string('beneficiary_contact_person');
+            $table->string('beneficiary_contact_email');
+            $table->string('beneficiary_contact_number');
+            $table->enum('status',['active','inactive'])->default('active');
+            $table->text('beneficiary_description');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->string('campaign_name')->unique();
-            $table->enum('campaign_type', ['education', 'healthcare', 'animal-care', 'social-welfare', 'emergency-relief', 'environmental-protection', 'community-development', 'persons-with-disability', 'single-patient-support'])->default('education');
+            $table->enum('campaign_type', ['education', 'healthcare', 'animal-care', 'social-welfare', 'emergency-relief', 'environmental-protection', 'community-development', 'persons-with-disability', 'single-patient-support']);
             $table->decimal('funding_goal', 10, 2);
             $table->date('start_date');
             $table->date('end_date');

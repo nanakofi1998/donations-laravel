@@ -55,7 +55,11 @@
                                 <div class="modal-body">
                                     <form action="{{ route ('add_campaign.store')}}" method="POST" enctype="multipart/form-data" class="row">
                                         @csrf
-                                        <div class="col-md-12 mb-3">
+                                        <div style="display: none;">
+                                            Session success: {{ session('success') ?? 'No success message' }}
+                                            Session error: {{ session('error') ?? 'No error message' }}
+                                        </div>
+                                        <div class="col-md-6 mb-3">
                                             <label for="beneficiary_name">Campaign Name <span
                                                     class="text-danger">*</span></label>
                                             <input input="text" type="text" class="form-control" name="campaign_name" placeholder="Enter Campaign Name">
@@ -74,6 +78,13 @@
                                                 <option value="community-development">Community Development</option>
                                                 <option value="person-with-disability">Person with Disability</option>
                                                 <option value="single-patient-support">Single Patient Support</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="beneficiary_name">Campaign Beneficiary Type <span
+                                                    class="text-danger">*</span></label>
+                                            <select class="form-select wide" name="beneficiary_type" >
+                                                <option disabled selected>Select Beneficiary Type</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 mb-3">

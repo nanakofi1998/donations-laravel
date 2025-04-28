@@ -253,7 +253,7 @@
                             <span class="nav-text">Beneficiaries</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="task.html">Add Beneficiary</a></li>
+                            <li><a href="{{ route ('add_beneficiary')}}">Add Beneficiary</a></li>
                             <li><a href="task-summary.html">Manage Beneficiary</a></li>
                         </ul>
                     </li>
@@ -266,7 +266,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('add_campaign')}}">Add Campaign</a></li>
-                            <li><a href="task-summary.html">Manage Campaign</a></li>
+                            <li><a href="{{route ('manage_campaign')}}">Manage Campaign</a></li>
                         </ul>
                     </li>
                     <li><a href="performance.html" class="" aria-expanded="false">
@@ -378,8 +378,9 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    @yield('scripts')
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @yield('scripts')
     <script src="{{asset('assets/js/campaign_alert.js')}}"></script>
     <!-- Required vendors -->
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>

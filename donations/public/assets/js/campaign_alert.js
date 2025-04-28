@@ -1,10 +1,10 @@
 
-if (typeof successMessage !== 'undefined') {
+if (typeof success !== 'undefined') {
     Swal.fire({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 15000,
+        timer: 5000,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -18,12 +18,12 @@ if (typeof successMessage !== 'undefined') {
         background: '#fff',
     });
 }
-if (typeof errorMessage !== 'undefined') {
+if (typeof error !== 'undefined') {
     Swal.fire({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 15000,
+        timer: 5000,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer);

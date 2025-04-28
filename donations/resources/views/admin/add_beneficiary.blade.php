@@ -35,7 +35,7 @@
                         </div>
 
                         <!--Education modal start-->
-                        <div class="modal fade bd-example-modal-lg" id="educationModal" tabindex="-1" role="dialog"
+                        <div class="modal fade bd-example-modal-lg" id="educationModal" tabindex="-1" role="dialog" name="education"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -49,21 +49,21 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Beneficiary Name <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="beneficiary_name">
+                                                <input type="text" class="form-control" id="beneficiary_name" name="beneficiary_name">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Institution Name <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="institution_name">
+                                                <input type="text" class="form-control" id="institution_name" name="institution_name">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label">Type of Institution<span
                                                         class="text-danger">*</span></label>
-                                                <select id="healthcare_condition" class="form-select wide">
-                                                    <option selected>Select Healthcare Support Type</option>
-                                                    <option>Primary School</option>
-                                                    <option>Secondary School</option>
-                                                    <option>Tertiary</option>
+                                                <select id="healthcare_condition" class="form-select wide" name="institution_type">
+                                                    <option disabled selected>Select Healthcare Support Type</option>
+                                                    <option value="primary">Primary School</option>
+                                                    <option value="secondary">Secondary School</option>
+                                                    <option value="tertiary">Tertiary</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -117,7 +117,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="education_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -219,7 +219,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="healthcare_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -325,7 +325,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="animalcare_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -432,7 +432,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="education_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -538,7 +538,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="emergency_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -646,7 +646,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="animalcare_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -755,7 +755,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="animalcare_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -814,7 +814,7 @@
                                                 <input type="text" class="form-control" id="beneficiary_name">
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="beneficiary_name">Number Of Benefitting Students <span
+                                                <label for="beneficiary_name">Number Of Individuals Benefitting <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="beneficiary_name">
                                             </div>
@@ -823,7 +823,7 @@
                                                         class="text-danger">*</span></label>
                                                 <select id="inputState" class="form-select wide">
                                                     <option selected>Select educational needs</option>
-                                                    <option>Asiistive Devices</option>
+                                                    <option>Assistive Devices</option>
                                                     <option>Accessibility Improvements</option>
                                                 </select>
                                             </div>
@@ -848,7 +848,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="disability_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -975,7 +975,7 @@
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="emergency_description"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
                                             </div>
                                         </form>
                                     </div>
