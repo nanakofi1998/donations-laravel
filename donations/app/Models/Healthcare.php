@@ -8,7 +8,7 @@ class Healthcare extends Model
 {
     protected $fillable = [
         'beneficiary_id',
-        'healthacre_name',
+        'healthcare_name',
         'support_type',
         'specific_condition',
         'healthcare_location',

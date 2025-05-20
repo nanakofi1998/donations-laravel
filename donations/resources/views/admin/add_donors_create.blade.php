@@ -65,11 +65,41 @@
                                     </div> 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
+                                            <label class="form-label">Donor Lead Source <span class="text-danger">*</span></label>
+                                            <select name="donor_source" id="" class="form-select wide" required>
+                                                <option selected disabled>Choose Donor Source</option>
+                                                <option value="seminar">Seminar</option>
+                                                <option value="socials">Social Media (LinkedIn, Facebook, Instagram, Twitter, Whatsapp etc.)</option>
+                                                <option value="forum">Forum</option>
+                                                <option value="referral">Referral</option>
+                                                <option value="corporate">Corporate Partner</option>
+                                                <option value="crowdfunding">Crowdfunding Platform</option>
+                                                <option value="email-campaign">Email Campaign</option>
+                                                <option value="event">Event Attendance</option>
+                                                <option value="outreach">Community Outreach</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div> 
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Donor Lead Type <span class="text-danger">*</span></label>
+                                            <select name="donor_lead_type" id="" class="form-select wide" required>
+                                                <option selected disabled>Choose Donor-Lead Type</option>
+                                                <option value="major-donor-prospect">Major Donor Prospect</option>
+                                                <option value="corporate-partner">Corporate Partner</option>
+                                                <option value="corporate-donor">Corporate Donor</option>
+                                                <option value="influencer">Influencer/Ambassador</option>
+                                                <option value="board_member">Board Member Prospect</option>
+                                                <option value="legacy-donor">Legacy Donor Prospect</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
                                             <label class="form-label">Email <span class="text-danger">*</span></label>
                                             <input type="email" name="email" class="form-control" placeholder="Email" required>
                                         </div> 
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label">Donation Amount <span class="text-danger">*</span></label>
+                                            <label class="form-label">Target Amount <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <span class="input-group-text" id="basic-addon1">GH₵</span>
                                                 <input type="number" class="form-control" name="donor_amount" placeholder="0.00" required>
@@ -79,7 +109,7 @@
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
                                             <label class="form-label">Campaign</label>
-                                            <small class="text-danger">* Select a campaign to donate to</small>
+                                            <small class="text-warning">  Select a campaign to donate to (optional)</small>
                                             @if ($campaigns->count())
                                             <select id="campaign_id" class="form-select wide" name="campaign_id">
                                                 <option selected disabled>No Campaign Selected<option>
@@ -92,8 +122,8 @@
                                             @endif
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label class="form-label">Donation Preference <span class="text-danger">*</span></label>
-                                            <select id="" class="form-select wide" name="donation_preference" required>
+                                            <label class="form-label">Donation Preference <span class="text-warning">(optional)</span></label>
+                                            <select id="" class="form-select wide" name="donation_preference">
                                                 <option selected>Choose donation frequency</option>
                                                 <option value="recurring">Recurring</option>
                                                 <option value="one_time">One-Time</option>
@@ -101,28 +131,27 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Phone Number <small class="text-primary">(optional)</small></label>
-                                            <input type="text" class="form-control" name="donor_phone" placeholder="Phone Number">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Donor Phone Number <small class="text-danger">*</small></label>
+                                            <input type="text" class="form-control" name="donor_phone" placeholder="Phone Number" required>
                                         </div>
-                                        <div class="mb-3 col-md-8 ">
-                                            <label class="form-label">Message to Organizer <small class="text-primary">(optional)</small></label>
-                                            <textarea name="donor_message" class="form-control" id="summernote"></textarea>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Pipeline Stage <small class="text-danger">*</small></label>
+                                            <select name="pipeline_stage" class="form-select wide" id="pipeline_stage" required>
+                                                <option selected disabled>Choose Pipeline Stage</option>
+                                                <option value="prospecting">Prospecting</option>
+                                                <option value="qualifying">Qualifying</option>
+                                                <option value="contacting">Contacting</option>
+                                                <option value="negotiation">Negotiation</option>
+                                                <option value="closed-won">Closed Won</option>
+                                                <option value="closed-lost">Closed Lost</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <div class="form-check custom-checkbox checkbox-info">
-                                            <input type="hidden" name="anonymous" value="0">
-                                            <input class="form-check-input" type="checkbox" name="anonymous" id="customCheck1" value="1">
-                                            <label class="form-check-label">
-                                                Donate Anonymously <small><span class="text-danger" style="font-size: 8px">* Only select if you do not want to be known for your donation(s)</span></small>
-                                            </label>
-                                        </div>
-                                        <div class="form-check custom-checkbox checkbox-success">
-                                            <input class="form-check-input" type="checkbox">
-                                            <label class="form-check-label">
-                                                I confirm this donation is voluntary <span class="text-danger">*</span>
-                                            </label>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-12 ">
+                                            <label class="form-label">Comments <small class="text-warning">(optional)</small></label>
+                                            <textarea name="donor_message" class="form-control" id="summernote"></textarea>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-outline-success">Add Donor</button>
@@ -145,7 +174,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 5000,
+            timer: 8000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -166,7 +195,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 5000,
+            timer: 10   000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);

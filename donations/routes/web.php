@@ -4,10 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\BeneficiaryController;
+use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('admin.dashboard');
-});
+// User Authentication Routes
+Route::get('/', function () { return view('auth.login');})->name('login');
+Route::get('/signup', [UserController::class, 'create'])->name('signup');
+Route::post('/signup', [UserController::class, 'store'])->name('signup.store');
+Route::get('/reset-password', [UserController::class, 'edit'])->name('reset-password');
+Route::post('/reset-password', [UserController::class, 'update'])->name('reset-password.update');
 // Routes for Donors
 Route::get('/donors', [DonorController::class, 'index'])->name('manage_donors');
 Route::get('/donors/create', [DonorController::class, 'create'])->name('add_donors_create');

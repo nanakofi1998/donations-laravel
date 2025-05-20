@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('healthcares', function (Blueprint $table) {
             $table->id();
             $table->foreignId('beneficiary_id')->constrained('beneficiaries')->onDelete('cascade');
-            $table->string('healthcare_name')->unique();
+            $table->string('healthcare_name');
             $table->enum('support_type', ['medical-support', 'hospital-equipment', 'patient-care']);
             $table->enum('specific_condition', ['cancer', 'diabetes', 'general-support',]);
             $table->string('healthcare_location');

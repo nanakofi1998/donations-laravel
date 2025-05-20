@@ -53,7 +53,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route ('add_campaign.store')}}" method="POST" enctype="multipart/form-data" class="row">
+                                    <form action="{{ route ('add_campaign.store')}}" method="POST" enctype="multipart/form-data" class="row ">
                                         @csrf
                                         <div style="display: none;">
                                             Session success: {{ session('success') ?? 'No success message' }}

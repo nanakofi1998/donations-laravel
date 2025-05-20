@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('environmentalprotections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('beneficiary_id')->constrained('beneficiaries')->onDelete('cascade');
-            $table->string('environmental_protection_name')->unique();
+            $table->string('environmental_protection_name');
             $table->enum('type_of_initiative', ['reforestation', 'wildlife-conservation', 'clean-water']);
             $table->enum('required_resources', ['funding', 'volunteers', 'equipment']);
             $table->string('location');

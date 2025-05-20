@@ -19,8 +19,10 @@ return new class extends Migration
             $table->enum('donation_preference', ['one_time', 'recurring'])->default('one_time');
             $table->string('donor_phone')->nullable();
             $table->enum('donor_type', ['individual', 'institution'])->default('individual');
+            $table->enum('donor_source',['seminar', 'socials', 'forum', 'referral', 'corporate', 'crowdfunding', 'email-campaign', 'event', 'outreach', 'other']);
+            $table->enum('donor_lead_type', ['major-donor-prospect', 'corporate-partner', 'corporate-donor', 'influencer', 'board-member', 'legacy-donor']);
+            $table->enum('pipeline_stage', ['prospecting', 'qualifying', 'contacting', 'negotiation', 'closed-won', 'closed-lost']);
             $table->enum('donor_status', ['active', 'inactive'])->default('active');
-            $table->boolean('anonymous')->default(false);
             $table->text('donor_message')->nullable();
             $table->unsignedBigInteger('campaign_id')->nullable();
             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');

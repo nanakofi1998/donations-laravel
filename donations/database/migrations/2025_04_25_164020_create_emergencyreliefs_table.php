@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('emergencyreliefs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('beneficiary_id')->constrained('beneficiaries')->onDelete('cascade');
-            $table->string('emergency_relief_name')->unique();
+            $table->string('emergency_relief_name');
             $table->enum('type_of_emergency', ['natural-disaster', 'war', 'pandemic']);
             $table->enum('immediate_needs', ['food', 'shelter', 'medical-supplies']);
             $table->string('relief_timeframe');

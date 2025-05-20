@@ -33,11 +33,13 @@ class StoreDonorRequest extends FormRequest
 
             'email' => ['required', 'email', 'unique:donors,email'],
             'donor_amount' => ['required', 'numeric', 'min:0'],
-            'donation_preference' => ['required', Rule::in(['one_time', 'recurring'])],
+            'donation_preference' => ['nullable', Rule::in(['one_time', 'recurring'])],
+            'donor_source' => ['required', Rule::in(['seminar', 'socials', 'forum', 'referral', 'corporate', 'crowdfunding', 'email-campaign', 'event', 'outreach', 'other'])],
+            'donor_lead_type' => ['required', Rule::in(['major-donor-prospect', 'corporate-partner', 'corporate-donor', 'influencer', 'board-member', 'legacy-donor'])],
+            'pipeline_stage' => ['required', Rule::in(['prospecting', 'qualifying', 'contacting', 'negotiation', 'closed-won', 'closed-lost'])],
             'campaign_id' => ['nullable', 'integer', 'exists:campaigns,id'],
-            'donor_phone' => ['nullable', 'string', 'max:15'],
+            'donor_phone' => ['required', 'string', 'max:15'],
             'donor_message' => ['nullable', 'string', 'max:65535'],
-            'anonymous' => ['nullable', 'boolean'],
         ];
     }
     

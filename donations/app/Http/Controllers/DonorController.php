@@ -84,9 +84,11 @@ class DonorController extends Controller
             $donor->institution_address = $validated['institution_address'] ?? null;
             $donor->email = $validated['email'];
             $donor->donor_amount = $validated['donor_amount'];
+            $donor->donor_source = $validated['donor_source'];
+            $donor->donor_lead_type = $validated['donor_lead_type'];
+            $donor->pipeline_stage = $validated['pipeline_stage'];
             $donor->donation_preference = $validated['donation_preference'];
-            $donor->donor_phone = $validated['donor_phone'] ?? null;
-            $donor->anonymous = $validated['anonymous'] ?? false;
+            $donor->donor_phone = $validated['donor_phone'];
             $donor->donor_message = $validated['donor_message'] ?? null;
             $donor->campaign_id = $validated['campaign_id'] ?? null;
 

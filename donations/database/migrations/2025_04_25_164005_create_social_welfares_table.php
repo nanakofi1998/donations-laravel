@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('social_welfares', function (Blueprint $table) {
             $table->id();
             $table->foreignId('beneficiary_id')->constrained('beneficiaries')->onDelete('cascade');
-            $table->string('social_welfare_name')->unique();
+            $table->string('social_welfare_name');
             $table->enum('target_group', ['low-income-families','orphans','elderly',]);
             $table->enum('program_type', ['food-distribution','housing-assistance','counseling']);
             $table->string('location');

@@ -45,22 +45,27 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="" class="row">
+                                        <form action=" {{ route ('add_beneficiary.store')}}" method="POST" class="row">
+                                            @csrf
+                                            <div style="display: none;">
+                                                Session success: {{ session('success') ?? 'No success message' }}
+                                                Session error: {{ session('error') ?? 'No error message' }}
+                                            </div>
+                                            <input type="hidden" name="beneficiary_type" value="education">
                                             <div class="col-md-6 mb-3">
-                                                <label for="beneficiary_name">Beneficiary Name <span
-                                                        class="text-danger">*</span></label>
+                                                <label for="beneficiary_name">Beneficiary Name <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="beneficiary_name" name="beneficiary_name">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Institution Name <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="institution_name" name="institution_name">
+                                                <input type="text" class="form-control" id="school_name" name="school_name">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label">Type of Institution<span
                                                         class="text-danger">*</span></label>
-                                                <select id="healthcare_condition" class="form-select wide" name="institution_type">
-                                                    <option disabled selected>Select Healthcare Support Type</option>
+                                                <select id="school_type" class="form-select wide" name="school_type">
+                                                    <option disabled selected>Select Institution Type</option>
                                                     <option value="primary">Primary School</option>
                                                     <option value="secondary">Secondary School</option>
                                                     <option value="tertiary">Tertiary</option>
@@ -69,61 +74,62 @@
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label">Level of Education<span
                                                         class="text-danger">*</span></label>
-                                                <select id="inputState" class="form-select wide">
-                                                    <option selected>Select Level of Education</option>
-                                                    <option>Elementary</option>
-                                                    <option>High School</option>
-                                                    <option>Undergraduate</option>
+                                                <select id="inputState" class="form-select wide" name="education_level">
+                                                    <option selected disabled>Select Level of Education</option>
+                                                    <option value="elementary">Elementary</option>
+                                                    <option value="high-school">High School</option>
+                                                    <option value="undergraduate">Undergraduate</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Location <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="beneficiary_name">
+                                                <input type="text" class="form-control" id="school_location" name="school_location">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Number Of Benefitting Students <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="beneficiary_name">
+                                                <input type="number" class="form-control" id="number_of_beneficiaries" name="number_of_beneficiaries">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label">Educational Needs<span
                                                         class="text-danger">*</span></label>
-                                                <select id="inputState" class="form-select wide">
-                                                    <option selected>Select educational needs</option>
-                                                    <option>Books</option>
-                                                    <option>Schorlarships</option>
-                                                    <option>Infrastructure</option>
+                                                <select id="inputState" class="form-select wide" name="education_needs">
+                                                    <option selected disabled>Select educational needs</option>
+                                                    <option value="books">Books</option>
+                                                    <option value="schorlarships">Schorlarships</option>
+                                                    <option value="infrastructure">Infrastructure</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Contact Person <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="beneficiary_name"
+                                                <input type="text" class="form-control" id="beneficiary_contact_person" name="beneficiary_contact_person"
                                                     placeholder="Enter Contact Person Name">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Contact Email <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="beneficiary_name"
+                                                <input type="text" class="form-control" id="beneficiary_contact_email" name="beneficiary_contact_email"
                                                     placeholder="Enter contact person email">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="beneficiary_name">Contact Person Phone <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="beneficiary_name"
+                                                <input type="text" class="form-control" id="beneficiary_contact_number" name="beneficiary_contact_number"
                                                     placeholder="Enter contact person phone number">
                                             </div>
                                             <div class="col-md-12">
                                                 <label for="beneficiary_name">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote" name="beneficiary_description"></textarea>
+                                            </div>
+                                       
+                                            </div>
+                                            <div class="modal-footer">
+                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -152,80 +158,86 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="" class="row">
+                                        <form action=" {{ route ('add_beneficiary.store')}}" method="POST" class="row">
+                                            @csrf
+                                            <div style="display: none;">
+                                                Session success: {{ session('success') ?? 'No success message' }}
+                                                Session error: {{ session('error') ?? 'No error message' }}
+                                            </div>
+                                            <input type="hidden" name="beneficiary_type" value="healthcare">
                                             <div class="col-md-4 mb-3">
-                                                <label for="healthcare_beneficiary_name">Beneficiary Name <span
+                                                <label for="beneficiary_name">Beneficiary Name <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
-                                                    id="healthcare_beneficiary_name">
+                                                    id="beneficiary_name" name="beneficiary_name">
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label for="healthcare_name">Healthcare Institution Name <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
-                                                    id="healthcare_institution_name">
+                                                    id="healthcare_institution_name" name="healthcare_name">
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label class="form-label">Type of Healthcare Support <span
                                                         class="text-danger">*</span></label>
-                                                <select id="health_support" class="form-select wide">
-                                                    <option selected>Select Healthcare Support Type</option>
-                                                    <option>Medical Support</option>
-                                                    <option>Hospital Equipment</option>
-                                                    <option>Patient Care</option>
+                                                <select id="health_support" class="form-select wide" name="support_type">
+                                                    <option selected disabled>Select Healthcare Support Type</option>
+                                                    <option value="medical-support">Medical Support</option>
+                                                    <option value="hospital-equipment">Hospital Equipment</option>
+                                                    <option value="patient-care">Patient Care</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label class="form-label">Specific Health Condition <span
                                                         class="text-danger">*</span></label>
-                                                <select id="health_condition" class="form-select wide">
-                                                    <option selected>Specific Health Condition</option>
-                                                    <option>Cancer</option>
-                                                    <option>Diabetes</option>
-                                                    <option>General Health Support</option>
+                                                <select id="health_condition" class="form-select wide" name="specific_condition">
+                                                    <option selected disabled>Specific Health Condition</option>
+                                                    <option value="cancer">Cancer</option>
+                                                    <option value="diabetes">Diabetes</option>
+                                                    <option value="general-support">General Health Support</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label for="beneficiary_name">Location <span
+                                                <label for="beneficiary_location">Location <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="healthcare_location">
+                                                <input type="text" class="form-control" id="healthcare_location" name="healthcare_location">
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label for="beneficiary_name">Number Of Patients <span
+                                                <label for="number_of_patients">Number Of Patients <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="patients">
+                                                <input type="number" class="form-control" id="number_of_patients" name="number_of_patients">
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label for="beneficiary_name">Contact Person <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                     id="healthcare_beneficiary_name"
-                                                    placeholder="Enter Contact Person Name">
+                                                    placeholder="Enter Contact Person Name" name="beneficiary_contact_person">
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label for="beneficiary_name">Contact Email <span
+                                                <label for="email">Contact Email <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                     id="healthcare_beneficiary_email"
-                                                    placeholder="Enter contact person email">
+                                                    placeholder="Enter contact person email" name="beneficiary_contact_email">
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <label for="beneficiary_name">Contact Person Phone <span
+                                                <label for="number">Contact Person Phone <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" class="form-control"
                                                     id="healthcare_beneficiary_phone"
-                                                    placeholder="Enter contact person phone number">
+                                                    placeholder="Enter contact person phone number" name="beneficiary_contact_number">
                                             </div>
                                             <div class="col-md-12">
-                                                <label for="beneficiary_name">Description of support required <span
+                                                <label for="description">Description of support required <span
                                                         class="text-info" style="font-size: 10px">optional</span></label>
-                                                <textarea type="text-area" class="form-control" id="summernote"></textarea>
+                                                <textarea type="text-area" class="form-control" id="summernote" name="beneficiary_description"></textarea>
                                             </div>
-                                        </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -1006,4 +1018,49 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
     </style>
+@endsection
+
+@section('scripts')
+@if (session('success'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            title: "Success",
+            icon: "success",
+            text: "{{session('success') }}",
+            iconColor: '#3085d6',
+            background: '#fff',
+        });
+    </script>
+    @endif
+
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 15000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            title: "Error",
+            icon: "error",
+            text: "{{session('error') }}",
+            iconColor: '#3085d6',
+            background: '#fff',
+        });
+    </script>
+    @endif
+    
 @endsection
