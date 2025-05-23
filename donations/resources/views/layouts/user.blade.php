@@ -37,10 +37,10 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <!-- Summernote CSS -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
-<!-- Summernote JS -->
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <!-- Summernote JS -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     <!-- tagify-css -->
     <link href="{{ asset('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
@@ -235,107 +235,16 @@
                     </li>
                     <li><a href="#" class="has-arrow" aria-expanded="false">
                             <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/donation-svgrepo-com.svg') }}" alt=""
-                                    style="width:22px; height:22px;">
-                            </div>
-                            <span class="nav-text">Donors</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ route('add_donors_create') }}">Add Donor</a></li>
-                            <li><a href="{{ route('manage_donors')}}">Manage Donor</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="has-arrow" aria-expanded="false">
-                            <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/beneficiaries.svg') }}" alt=""
-                                    style="width:22px; height:22px;">
-                            </div>
-                            <span class="nav-text">Beneficiaries</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ route ('add_beneficiary')}}">Add Beneficiary</a></li>
-                            <li><a href="task-summary.html">Manage Beneficiary</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="has-arrow" aria-expanded="false">
-                            <div class="menu-icon">
                                 <img src="{{ asset('assets/images/svg/campaign.svg') }}" alt=""
                                     style="width:22px; height:22px;">
                             </div>
-                            <span class="nav-text">Campaigns</span>
+                            <span class="nav-text">Crowd Funding</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('add_campaign')}}">Add Campaign</a></li>
-                            <li><a href="{{route ('manage_campaign')}}">Manage Campaign</a></li>
+                            <li><a href="{{ route('crowd_funding_create')}}">Add Funding</a></li>
+                            <li><a href="{{route ('crowd_funding')}}">Manage Funding</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="" aria-expanded="false">
-                            <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/analytics.svg') }}" alt=""
-                                    style="width:22px; height:22px;">
-                            </div>
-                            <span class="nav-text">Analytics</span>
-                        </a>
-                    </li>
-                    <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                            <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/tasks-app-svgrepo-com.svg') }}" alt=""
-                                    style="width:22px; height:22px;">
-                            </div>
-                            <span class="nav-text">Tasks</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="task.html">Donor Pipeline</a></li>
-                            <li><a href="task-summary.html">Appointments</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="" aria-expanded="false">
-                            <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/report-svgrepo-com.svg') }}" alt=""
-                                    style="width:20px; height:20px;">
-                            </div>
-                            <span class="nav-text">Reports</span>
-                        </a>
-                    </li>
-                     <li><a href="#" class="" aria-expanded="false">
-                            <div class="menu-icon">
-                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M16.334 2.75012H7.665C4.644 2.75012 2.75 4.88912 2.75 7.91612V16.0841C2.75 19.1111 4.635 21.2501 7.665 21.2501H16.333C19.364 21.2501 21.25 19.1111 21.25 16.0841V7.91612C21.25 4.88912 19.364 2.75012 16.334 2.75012Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M11.9946 16.0001V12.0001" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M11.9896 8.20435H11.9996" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-							
-                            </div>
-                            <span class="nav-text">Wiki</span>
-                        </a>
-                    </li>
-                    <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                            <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/user-authentication-svgrepo-com.svg') }}"
-                                    alt="" style="width:22px; height:22px;">
-                            </div>
-                            <span class="nav-text">Auth Menu</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a class="has-arrow" href="{{route('create_user')}}" aria-expanded="false">Add User</a>
-                            </li>
-                            <li><a class="has-arrow" href="{{route ('manage_user')}}" aria-expanded="false">Manage User</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                            <div class="menu-icon">
-                                <img src="{{ asset('assets/images/svg/institution-svgrepo-com.svg') }}"
-                                    alt="" style="width:22px; height:22px;">
-                            </div>
-                            <span class="nav-text">Institutions</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="content.html">Add Institution</a></li>
-                            <li><a href="menu.html">Manage Institution</a></li>
-                        </ul>
-                    </li>
-
                     <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                             <div class="menu-icon">
                                 <img src="{{ asset('assets/images/svg/settings-svgrepo-com.svg') }}" alt=""
@@ -345,7 +254,6 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="uc-select2.html">Auth</a></li>
-                            <li><a href="uc-nestable.html">Institutions</a></li>
                             <li><a href="uc-noui-slider.html">General Settings</a></li>
                         </ul>
                     </li>
@@ -368,7 +276,7 @@
         ***********************************-->
 
 
-        @yield('content')
+        @yield('user_content')
 
 
         <!--**********************************
@@ -403,8 +311,6 @@
     ***********************************-->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @yield('scripts')
-    <script src="{{asset('assets/js/campaign_alert.js')}}"></script>
     <!-- Required vendors -->
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
@@ -452,7 +358,6 @@
     <script src="{{asset('assets/vendor/fullcalendar/js/main.min.js')}}"></script>
 	<script src="{{asset('assets/js/plugins-init/fullcalendar-init.js')}}"></script>
 	<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-    <script src="{{asset('assets/js/donor.js')}}"></script>    
 
     <script>
     $(document).ready(function() {
@@ -472,6 +377,15 @@
         });
     });
     </script>
+    {{-- Bootstrap tooltip --}}
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    });
+</script>
 
         
 </body>

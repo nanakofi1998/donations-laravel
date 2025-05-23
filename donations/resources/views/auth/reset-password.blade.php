@@ -30,10 +30,7 @@
     <div class="authincation h-100 ">
         <div class="container-fluid h-100">
             <div class="row h-100">
-				<div class="col-lg-12 col-md-12 col-sm-12 mx-auto align-self-center">
-                    <div class="text-center mb-4">
-            				<a href="javascript:void(0)"><img src="{{asset('assets/images/bsystems_logo.png')}}" class="mb-3 logo-dark bounce-animation" alt="" style="width:150px; height:50px"></a>
-        				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 mx-auto align-self-center">
 					<div class="login-form">
 						<div class="text-center">
 							<h3 class="title">Forgot Password!</h3>
@@ -61,7 +58,7 @@
 								</span>
 							</div>
 							<div class="text-center mb-4">
-								<button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+								<button type="submit" class="btn btn-outline-danger btn-block">Reset Password</button>
 							</div>
                             <p class="text-center">Already registered?  
                                 <a class="btn-link text-primary" href="{{route ('login')}}">Login</a>
@@ -69,18 +66,18 @@
 						</form>
 					</div>
 				</div>
-                {{-- <div class="col-xl-6 col-lg-6 shadow-lg bg-light">
+               <div class="col-xl-6 col-lg-6 shadow-lg bg-light">
     				<div class="pages-left h-100 d-flex flex-column justify-content-center align-items-center">
         				<div class="login-content text-center">
             				<a href="javascript:void(0)"><img src="{{asset('assets/images/bsystems_logo.png')}}" class="mb-3 logo-dark bounce-animation" alt="" style="width:150px; height:50px"></a>
             				<h4 class="mb-3 bounce-animation">Bsystems® Donor Management Platform</h4>
         				</div>
 						<div class="login-media text-center">
-						 <img src="{{asset('assets/images/login-image.png')}}" alt="" class="img-fluid bounce-animation">
+						 <img src="{{asset('assets/images/forgot-pass.png')}}" alt="" class="img-fluid bounce-animation" style="width: 400px; height: 400px;">
 						</div>
 						
     				</div>	
-				</div> --}}
+				</div> 
                          <style>
 							@keyframes bounce {
 								0%, 100% {

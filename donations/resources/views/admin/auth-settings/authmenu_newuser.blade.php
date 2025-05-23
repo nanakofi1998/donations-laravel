@@ -10,33 +10,33 @@
         </div>
         <div class="container-fluid">
             <!-- row -->
-            <div class="row">
-                <div class="col-xl-12 col-xxl-12 bg-white rounded-3">
+            <div class="row ">
+                <div class="col-xl-12 col-xxl-12 bg-white rounded-3 shadow-lg">
                     <form action="" method="POST">
                         <div class="row">
-                            <h2 class="text-primary">Create New User</h2>
-                            <div class="col-md-6 mb-3">
+                            <h2 class="text-dark">Create New User</h2>
+                            <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="first_name">First Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="first_name" name="first_name" required>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="last_name">Last Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="last_name" name="last_name" required>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="email">Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="role">Role <span class="text-danger">*</span></label>
                                     <select class="form-select" id="role" name="role" required>
@@ -48,16 +48,13 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
+                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="password">Password <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control" id="password" name="password" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="password_confirmation">Confirm Password <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control" id="password_confirmation"
@@ -65,7 +62,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -76,7 +72,7 @@
                         
                         <div class="row">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary mt-3 mb-3">Create User</button>
+                                <button type="submit" class="btn btn-outline-danger mt-3 mb-3">Create User</button>
                             </div>
                         </div>
                     </form>

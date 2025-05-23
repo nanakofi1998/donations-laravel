@@ -77,6 +77,20 @@
                                     </span>
                                 </div>
                             </div>
+                             <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                <div class="col-6 mb-4">
+                                    <div class="form-check custom-checkbox mb-3">
+                                        <input type="radio" class="form-check-input" id="customCheckBox1" required>
+                                        <label class="form-check-label" for="customCheckBox1">Sign Up as an Institution <br><span class="text-danger"><small>(Non-Profit Organization)</small></span></label>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-4">
+                                    <div class="form-check custom-checkbox mb-3">
+                                        <input type="radio" class="form-check-input" id="customCheckBox1" required>
+                                        <label class="form-check-label" for="customCheckBox1">Sign Up as Individual <br><span class="text-danger"><small>(Crowd Funding)</small></span></label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                 <div class="mb-4">
                                     <div class="form-check custom-checkbox mb-3">
@@ -86,17 +100,8 @@
                                 </div>
                             </div>
                             <div class="text-center mb-4">
-                                <button type="submit" class="btn btn-outline-dark btn-block">Sign Up</button>
+                                <button type="submit" class="btn btn-outline-danger btn-block">Sign Up</button>
                             </div>
-                            {{-- <h6 class="login-title"><span>Or continue with</span></h6>
-                            <div class="mb-3">
-                                <ul class="d-flex align-self-center justify-content-center">
-                                    <li><a target="_blank" href="https://www.facebook.com/" class="fab fa-facebook-f btn-facebook"></a></li>
-                                    <li><a target="_blank" href="https://www.google.com/" class="fab fa-google-plus-g btn-google-plus mx-2"></a></li>
-                                    <li><a target="_blank" href="https://www.linkedin.com/" class="fab fa-linkedin-in btn-linkedin me-2"></a></li>
-                                    <li><a target="_blank" href="https://twitter.com/" class="fab fa-twitter btn-twitter"></a></li>
-                                </ul>
-                            </div> --}}
                             <p class="text-center">Already registered?  
                                 <a class="btn-link text-primary" href="{{route ('login')}}">Login</a>
                             </p>
@@ -120,7 +125,7 @@
 								}
 							}
 							.bounce-animation {
-								animation: bounce 7s infinite;
+								animation: bounce 10s infinite;
 							}
 						</style>
     				</div>	

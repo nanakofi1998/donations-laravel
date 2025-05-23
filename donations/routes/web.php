@@ -5,6 +5,9 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CreateNewUserController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CrowdFundingController;
 
 // User Authentication Routes
 Route::get('/', function () { return view('auth.login');})->name('login');
@@ -12,6 +15,16 @@ Route::get('/signup', [UserController::class, 'create'])->name('signup');
 Route::post('/signup', [UserController::class, 'store'])->name('signup.store');
 Route::get('/reset-password', [UserController::class, 'edit'])->name('reset-password');
 Route::post('/reset-password', [UserController::class, 'update'])->name('reset-password.update');
+
+// Route for creating a new user
+Route::get('/create-user', [CreateNewUserController::class, 'create'])->name('create_user');
+Route::get('/manage-user', [CreateNewUserController::class, 'index'])->name('manage_user');
+
+// Route::get('/logout', function () { return view('auth.login');})->name('logout');
+// Route::post('/logout', [UserController::class, 'destroy'])->name('logout');
+// Dashboard Route
+Route::get('/dashboard', function () { return view('admin.dashboard');})->name('dashboard');
+Route::get('/user-dashboard', function () { return view('user.dashboard');})->name('user_dashboard');
 // Routes for Donors
 Route::get('/donors', [DonorController::class, 'index'])->name('manage_donors');
 Route::get('/donors/create', [DonorController::class, 'create'])->name('add_donors_create');
@@ -38,3 +51,10 @@ Route::get('/beneficiaries/{id}/show', [BeneficiaryController::class, 'show'])->
 Route::get('/beneficiaries/{id}/edit', [BeneficiaryController::class, 'edit'])->name('add_beneficiary.edit');
 Route::put('/beneficiaries/{id}', [BeneficiaryController::class, 'update'])->name('add_beneficiary.update');
 Route::delete('/beneficiaries/{id}', [BeneficiaryController::class, 'destroy'])->name('delete_beneficiary');
+
+// Route for Profile Settings
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+// Route for crowd funding
+Route::get('/crowd-funding', [CrowdFundingController::class, 'index'])->name('crowd_funding');
+Route::get('/crowd-funding/create', [CrowdFundingController::class, 'create'])->name('crowd_funding_create');

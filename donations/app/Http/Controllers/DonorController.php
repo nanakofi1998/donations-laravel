@@ -51,7 +51,7 @@ class DonorController extends Controller
             ]));
         };
         // Pass the donors to the view
-        return view('admin.manage_donors', compact('donors', 'campaigns'));
+        return view('admin.donor.manage_donors', compact('donors', 'campaigns'));
     }
 
     /**
@@ -63,7 +63,7 @@ class DonorController extends Controller
          // Fetch all campaigns to display in the dropdown
          $campaigns = Campaign::all();
          // Pass the campaigns to the view
-         return view('admin.add_donors_create', compact('campaigns'));  
+         return view('admin.donor.add_donors_create', compact('campaigns'));  
     }
 
     /**

@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -20,8 +20,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        // You can only return one view per request.
-        return view('auth.signup');
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id)
     {
         //
     }
@@ -43,9 +42,9 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(string $id)
     {
-        return view('auth.reset-password');
+        //
     }
 
     /**

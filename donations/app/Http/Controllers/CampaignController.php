@@ -17,7 +17,7 @@ class CampaignController extends Controller
         // Fetch all campaigns to display in the dropdown
         
         // Pass the campaigns to the view
-        return view('admin.add_campaign');
+        return view('admin.campaign.add_campaign');
     }
 
     /**
@@ -25,7 +25,7 @@ class CampaignController extends Controller
      */
     public function manage()
     {
-        return view('admin.manage_campaign');
+        return view('admin.campaign.manage_campaign');
     }
 
     /**

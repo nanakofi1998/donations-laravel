@@ -23,7 +23,7 @@ class BeneficiaryController extends Controller
      */
     public function index()
     {
-        return view('admin.add_beneficiary');
+        return view('admin.beneficiary.add_beneficiary');
     }
 
     /**
