@@ -17,7 +17,7 @@
 				<div class="row">
 					<div class="col-xl-3 col-lg-4">
 						<div class="clearfix">
-							<div class="card card-bx profile-card author-profile m-b30">
+							<div class="card card-bx profile-card author-profile m-b30 shadow-lg rounded-3"> ">
 								<div class="card-body">
 									<div class="p-5">
 										<div class="author-profile">
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="col-xl-9 col-lg-8">
-						<div class="card profile-card card-bx m-b30">
+						<div class="card profile-card card-bx m-b30 shadow-lg rounded-3">
 							<div class="card-header">
 								<h6 class="title">Account setup</h6>
 							</div>

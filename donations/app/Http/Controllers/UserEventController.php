@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserAuthController extends Controller
+class UserEventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view ('user.calendar');
     }
 
     /**
@@ -20,7 +20,7 @@ class UserAuthController extends Controller
      */
     public function create()
     {
-        return view('user.settings.auth');
+        //
     }
 
     /**

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('slug')->unique();
+            // The slug is a URL-friendly version of the role name, typically lowercase and with spaces replaced by hyphens
             $table->string('description')->nullable();
             $table->timestamps();
         });

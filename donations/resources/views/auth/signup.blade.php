@@ -80,22 +80,22 @@
                              <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                 <div class="col-6 mb-4">
                                     <div class="form-check custom-checkbox mb-3">
-                                        <input type="radio" class="form-check-input" id="customCheckBox1" required>
-                                        <label class="form-check-label" for="customCheckBox1">Sign Up as an Institution <br><span class="text-danger"><small>(Non-Profit Organization)</small></span></label>
+                                        <input type="radio" class="form-check-input" name="account_type" id="institution" required>
+                                        <label class="form-check-label" for="institution">Sign Up as an Institution <br><span class="text-danger"><small>(Non-Profit Organization)</small></span></label>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-4">
                                     <div class="form-check custom-checkbox mb-3">
-                                        <input type="radio" class="form-check-input" id="customCheckBox1" required>
-                                        <label class="form-check-label" for="customCheckBox1">Sign Up as Individual <br><span class="text-danger"><small>(Crowd Funding)</small></span></label>
+                                        <input type="radio" class="form-check-input custom-red" name="account_type" id="individual" required>
+                                        <label class="form-check-label" for="individual">Sign Up as Individual <br><span class="text-danger"><small>(Crowd Funding)</small></span></label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                 <div class="mb-4">
                                     <div class="form-check custom-checkbox mb-3">
-                                        <input type="checkbox" class="form-check-input" id="customCheckBox1" required>
-                                        <label class="form-check-label" for="customCheckBox1"><span class="text-danger"> *</span> I understand and agree to all policies</label>
+                                        <input type="checkbox" class="form-check-input" id="policy-check" required>
+                                        <label class="form-check-label" for="policy-check"><span class="text-danger"> *</span> I understand and agree to all policies</label>
                                     </div>
                                 </div>
                             </div>

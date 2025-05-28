@@ -9,7 +9,7 @@
         <div class="page-titles">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item "><a href="javascript:void(0)">Manage Donors</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="{{route ('user_dashboard')}}">Dashboard</a></li>
             </ol>
         </div>
         <!-- container starts -->
@@ -22,7 +22,7 @@
                         <div class="row">
                             <!-- Column starts -->
                             <div class="col-xl-12">
-                                <div class="card dz-card" id="accordion-three">
+                                <div class="card dz-card shadow-lg rounded-3" id="accordion-three">
                                     <div class="card-header flex-wrap d-flex justify-content-between">
                                         <div>
                                             <span class="text-primary">Manage all donors</span>

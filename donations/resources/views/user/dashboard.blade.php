@@ -11,7 +11,6 @@
 					<li>
 						<h5 class="bc-title">Dashboard</h5>
 					</li>
-					<li class="breadcrumb-item active"><a href="index.html">Dashboard</a></li>
 				</ol>
 				<a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
 					aria-controls="offcanvasExample1">+ Add Task</a>

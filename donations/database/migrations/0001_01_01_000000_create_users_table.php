@@ -16,6 +16,12 @@ return new class extends Migration
             $table->string('f_name');
             $table->string('l_name');
             $table->string('email')->unique();
+            $table->string('userkey')->unique()->nullable();
+            $table->string('userslug')->unique()->nullable();
+            $table->enum('account_type', ['institution', 'individual'])->default('individual');
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('phone')->nullable();
+            $table->boolean('is_verified')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -31,6 +37,7 @@ return new class extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
+            $table->string('user_key')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');

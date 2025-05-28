@@ -23,7 +23,7 @@
                                 <h3 class="card-title">Create A New Campaign</h3>
                                 <img src="{{asset('assets/images/campaign_add.jpg')}}" style="width:150px; height:150px" alt="">
                                 <br>
-                                <a href="" class="btn btn-outline-dark mt-2 rounded" data-bs-toggle="modal"
+                                <a href="" class="btn btn-outline-danger mt-2 rounded" data-bs-toggle="modal"
                                     data-bs-target="#newCampaignModal">
                                     <i class="fas fa-plus"></i>
                                 </a>
@@ -37,7 +37,7 @@
                                 <h3 class="card-title">View Campaign Analytics</h3>
                                 <img src="{{asset('assets/images/analysis.png')}}" style="width:150px; height:150px" alt="">
                                 <br>
-                                <a href="" class="btn btn-outline-dark mt-3 rounded"> <i class="fas fa-arrow-right"></i> </a>
+                                <a href="" class="btn btn-outline-danger mt-3 rounded"> <i class="fas fa-arrow-right"></i> </a>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-primary">Create a new campaign</h5>
+                                    <h5 class="modal-title text-dark">Create a new campaign</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                                     </button>
                                 </div>
@@ -125,7 +125,7 @@
                                             <textarea type="text-area" class="form-control" id="summernote" name="campaign_description"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-outline-primary">Add Campaign</button>
+                                            <button type="submit" class="btn btn-outline-danger">Add Campaign</button>
                                         </div>
                                     </form>
                                 </div>

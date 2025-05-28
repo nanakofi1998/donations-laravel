@@ -12,7 +12,7 @@ class CreateNewUserController extends Controller
      */
     public function index()
     {
-       return view('admin.authmenu_manageuser');
+       return view('admin.auth-settings.authmenu_manageuser');
     }
 
     /**
@@ -20,7 +20,7 @@ class CreateNewUserController extends Controller
      */
     public function create()
     {
-         return view ('admin.authmenu_newuser');
+         return view ('admin.auth-settings.authmenu_newuser');
     }
 
     /**

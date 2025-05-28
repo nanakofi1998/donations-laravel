@@ -14,7 +14,7 @@
             <!-- row -->
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
+                    <div class="card shadow-lg rounded">
                         <div class="card-body">
                             <h5 class="mb-3">
                                 Donor Type <span class="text-danger">*</span>
@@ -154,7 +154,7 @@
                                             <textarea name="donor_message" class="form-control" id="summernote"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-success">Add Donor</button>
+                                    <button type="submit" class="btn btn-outline-danger">Add Donor</button>
                                 </form>
                             </div>
                         </div>

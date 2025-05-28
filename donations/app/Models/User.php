@@ -18,7 +18,14 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'f_name',
+        'l_name',
+        'userkey',
+        'userslug',
+        'account_type',
+        'is_verified',
+        'status',
+        'phone',
         'email',
         'password',
     ];
@@ -45,4 +52,49 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected static function booted()
+    {
+        static::creating(function ($user) {
+          $user->userkey = $user->userkey ?? (string) \Str::uuid();
+            $user->userslug = $user->userslug ?? \Str::slug($user->f_name . ' ' . $user->l_name, '-' . Str::random(6));  
+        });
+    }
+
+    public function getJWTIdentifier(): string
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims(): array
+    {
+        return [
+            'userkey' => $this->userkey,
+            'userslug' => $this->userslug,
+            'account_type' => $this->account_type,
+            'is_verified' => $this->is_verified,
+            'status' => $this->status,
+        ];
+    }
+
+    public function roles () 
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
+    public function hasPermission($permission)
+    {
+        return $this->permissions()->where('name', $permission)->exists();
+    }
+
 }

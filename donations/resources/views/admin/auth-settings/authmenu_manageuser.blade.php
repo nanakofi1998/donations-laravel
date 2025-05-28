@@ -21,7 +21,7 @@
                         <div class="row">
                             <!-- Column starts -->
                             <div class="col-xl-12">
-                                <div class="card dz-card" id="accordion-three">
+                                <div class="card dz-card shadow-lg rounded-3" id="accordion-three">
                                     <div class="card-header flex-wrap d-flex justify-content-between">
                                         <div>
                                             <span class="text-dark">Manage all users</span>

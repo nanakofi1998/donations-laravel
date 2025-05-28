@@ -6,7 +6,7 @@
         <div class="page-titles">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Add a crowd-funding</a></li> 
-                    <li class="breadcrumb-item active"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route ('user_dashboard')}}">Dashboard</a></li>
                 </ol>
             </div>
         <div class="container">
@@ -19,7 +19,7 @@
                             <h3 class="card-title">Add a crowd-funding</h3>
                             <span class="text-muted ">
                                 <i class="fas fa-info-circle text-warning"></i>
-                                <small class="text-warning">You are limited to create only 3 campaigns monthly, a request should be made if more campaigns creation is needed</small>
+                                <small class="text-warning">You are limited to only 3 campaign creations monthly, a request should be made if more campaign creation(s) is needed</small>
                             </span>
                             <hr class="my-4">
                             <div class="basic-form">
@@ -56,20 +56,24 @@
                                                 <input type="number" class="form-control" name="funding_goal" placeholder="0.00">
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-3 mb-3">
+                                            <label for="beneficiary_name">Start Date <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" id="start_date" name="start_date">
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-label">End Date <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" id="end_date" name="end_date">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-6 mb-3">
                                             <label for="formFile">Upload Campaign Image <span class="text-danger"><small>* max 3 images (not more than 4MB each)</small></span></label>
                                             <input type="file" class="form-control" name="funding_image[]" id="formFile" accept=".png, .jpg, .jpeg" multiple>
                                             <small class="text-muted">Hold down Ctrl (or Cmd on Mac) to select multiple images</small>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="beneficiary_name">Start Date <span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="start_date" name="start_date">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">End Date <span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="end_date" name="end_date">
+                                            <label for="formFile">Upload Campaign Video<span class="text-danger"><small>* max 4 minutes (should not exceed 4 mins)</small></span></label>
+                                            <input type="file" class="form-control" name="funding_image[]" id="formFile" accept=".png, .jpg, .jpeg" multiple>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -86,6 +90,6 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
 @endsection
