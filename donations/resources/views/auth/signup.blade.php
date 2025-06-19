@@ -37,56 +37,64 @@
 							<h3 class="title">Create an account!</h3>
 							<p>Let’s get you all set up so you can verify your personal account and begin setting up your profile.</p>
 						</div>
-                        <form action="" method="POST">
+                        <form action=" {{route('signup')}}" method="POST">
                             @csrf
+                            <div style="display: none;">
+                                        Session success: {{ session('success') ?? 'No success message' }}
+                                        Session error: {{ session('error') ?? 'No error message' }}
+                            </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <label class="mb-1 text-dark">First Name</label>
-                                    <input type="text" name="first_name" class="form-control" required placeholder="Enter your first name">
+                                    <input type="text" name="f_name" value="{{old ('f_name')}}" class="form-control" required placeholder="Enter your first name">
+                                    @error('f_name') <small class="text-danger">{{ $message }}</small> @enderror
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <label class="mb-1 text-dark">Last Name</label>
-                                    <input type="text" name="last_name" class="form-control" required placeholder="Enter your last name">
+                                    <input type="text" name="l_name" class="form-control" value="{{old('l_name')}}" required placeholder="Enter your last name">
+                                    @error('l_name') <small class="text-danger">{{ $message }}</small> @enderror
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <label class="mb-1 text-dark">Phone Number</label>
-                                    <input type="text" name="phone" class="form-control" required placeholder="Enter your phone number">
+                                    <input type="tel" name="phone" value="{{old('phone')}}" class="form-control" required placeholder="Enter your phone number">
+                                    @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <label class="mb-1 text-dark">Email</label>
-                                    <input type="email" name="email" class="form-control" required placeholder="Enter your email">
+                                    <input type="email" name="email" value="{{old('email')}}" class="form-control" required placeholder="Enter your email">
+                                    @error('email') <small class="text-danger">{{ $message }}</small> @enderror
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4 position-relative">
                                     <label class="mb-1 text-dark">Password</label>
-                                    <input type="password" name="password" class="form-control" required placeholder="********">
-                                    <span class="show-pass eye">
+                                    <input type="password" name="password" id="password" class="form-control" required placeholder="********">
+                                    <span class="toggle-password position-absolute" style="top: 40px; right: 15px; cursor: pointer;">
                                         <i class="fa fa-eye-slash"></i>
-                                        <i class="fa fa-eye"></i>
                                     </span>
+                                    <small id="password-strength" class="text-muted mt-1 d-block"></small>
                                 </div>
                                 <div class="col-md-6 mb-4 position-relative">
                                     <label class="mb-1 text-dark">Confirm Password</label>
-                                    <input type="password" name="password_confirmation" class="form-control" required placeholder="********">
-                                    <span class="show-pass eye">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required placeholder="********">
+                                    <span class="toggle-password position-absolute" style="top: 40px; right: 15px; cursor: pointer;">
                                         <i class="fa fa-eye-slash"></i>
-                                        <i class="fa fa-eye"></i>
                                     </span>
+                                    <small id="password-match-message" class="text-danger mt-1 d-block"></small>
                                 </div>
                             </div>
                              <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                 <div class="col-6 mb-4">
                                     <div class="form-check custom-checkbox mb-3">
-                                        <input type="radio" class="form-check-input" name="account_type" id="institution" required>
+                                        <input type="radio" class="form-check-input" name="account_type" value="institution" id="institution">
                                         <label class="form-check-label" for="institution">Sign Up as an Institution <br><span class="text-danger"><small>(Non-Profit Organization)</small></span></label>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-4">
                                     <div class="form-check custom-checkbox mb-3">
-                                        <input type="radio" class="form-check-input custom-red" name="account_type" id="individual" required>
+                                        <input type="radio" class="form-check-input custom-red" name="account_type" value="individual" id="individual" required>
                                         <label class="form-check-label" for="individual">Sign Up as Individual <br><span class="text-danger"><small>(Crowd Funding)</small></span></label>
                                     </div>
                                 </div>
@@ -138,14 +146,65 @@
 	Scripts
 ***********************************-->
 <!-- Required vendors -->
- <script src="{{asset('assets/vendor/global/global.min.js')}}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    new PasswordManager(
+        '#password',
+        '#password_confirmation',
+        '#password-strength',
+        '#password-match-message'
+    );
+});
+</script>
+ @if (session('success'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 8000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            title: "Success",
+            icon: "success",
+            text: "{{session('success') }}",
+            iconColor: '#3085d6',
+            background: '#fff',
+        });
+    </script>
+    @endif
+
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 10000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            title: "Error",
+            icon: "error",
+            text: "{{session('error') }}",
+            iconColor: '#3085d6',
+            background: '#fff',
+        });
+    </script>
+    @endif
+<script src="{{asset('assets/vendor/global/global.min.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
- <script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script>
 <script src="{{asset('assets/js/deznav-init.js')}}"></script>
 <script src="{{asset('assets/js/demo.js')}}"></script>
-
+<script src="{{asset('assets/js/password-manager.js')}}"></script>
 <script src="{{asset('assets/js/styleSwitcher.js')}}"></script>
 </body>
 
-<!-- Mirrored from w3crm.dexignzone.com/xhtml/page-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2024 16:27:37 GMT -->
 </html>

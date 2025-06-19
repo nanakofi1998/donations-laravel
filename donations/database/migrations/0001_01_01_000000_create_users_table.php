@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('userkey')->unique()->nullable();
             $table->string('userslug')->unique()->nullable();
-            $table->enum('account_type', ['institution', 'individual'])->default('individual');
+            $table->enum('account_type', ['institution', 'individual']);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('phone')->nullable();
             $table->boolean('is_verified')->default(false);

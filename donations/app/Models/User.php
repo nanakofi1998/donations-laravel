@@ -6,8 +6,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Role;
+use App\Models\Permission;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable
+class User extends Authenticatable implements \Tymon\JWTAuth\Contracts\JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -95,6 +100,13 @@ class User extends Authenticatable
     public function hasPermission($permission)
     {
         return $this->permissions()->where('name', $permission)->exists();
+    }
+
+    public function queryWithRoles()
+    {
+        return $query-> whereHas('roles', function($q) use ($role) {
+            $q->where('name', $role);
+        });
     }
 
 }

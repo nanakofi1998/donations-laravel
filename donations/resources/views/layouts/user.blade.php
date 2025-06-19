@@ -142,8 +142,7 @@
                                                 <img src="{{ asset('assets/images/tab/1.jpg') }}" alt="">
                                             </div>
                                             <div class="header-info">
-                                                <h6>Thomas Fleming</h6>
-                                                <p>info@gmail.com</p>
+                                                 <h6>{{ Auth::user()->f_name }} {{Auth::user()->l_name}}</h6>
                                             </div>
 
                                         </div>
@@ -155,8 +154,8 @@
                                                     <img src="{{ asset('assets/images/tab/1.jpg') }}"
                                                         class="avatar avatar-md" alt="">
                                                     <div>
-                                                        <h6>Thomas Fleming</h6>
-                                                        <span>Web Designer</span>
+                                                        <h6>{{ Auth::user()->f_name }} {{Auth::user()->l_name}}</h6>
+                                                        <span>{{ Auth::user()->email}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +191,10 @@
 
                                                     <span class="ms-2">Settings </span>
                                                 </a>
-                                                <a href="page-login.html" class="dropdown-item ai-icon">
+                                                <form id="logout-form" method="POST" style="display:none;" action="{{ route('logout')}}">
+                                                    @csrf
+                                                </form>
+                                                <a href="#" class="dropdown-item ai-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     <svg class="profle-logout" xmlns="http://www.w3.org/2000/svg"
                                                         width="18" height="18" viewBox="0 0 24 24"
                                                         fill="none" stroke="#ff7979" stroke-width="2"
@@ -225,7 +227,7 @@
         <div class="deznav">
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li><a href="{{ route ('user_dashboard')}}" aria-expanded="false">
+                    <li><a href="{{ route ('dashboard')}}" aria-expanded="false">
                             <div class="menu-icon">
                                 <img src="{{ asset('assets/images/svg/dashboard.svg') }}" alt=""
                                     style="width:22px; height:22px;">

@@ -36,14 +36,19 @@
 							<h3 class="title">Welcome Back!</h3>
 							<p>Sign in to your account to get start</p>
 						</div>
-						<form action="">
+						<form action="{{route ('login-post')}}" method="POST">
+							@csrf
+							 <div style="display: none;">
+                                        Session success: {{ session('success') ?? 'No success message' }}
+                                        Session error: {{ session('error') ?? 'No error message' }}
+                            </div>
 							<div class="mb-4">
 								<label class="mb-1 text-dark">Email</label>
-								<input type="email" class="form-control form-control" value="" placeholder="Enter your email">
+								<input type="email" class="form-control form-control" value="" name="email" placeholder="Enter your email">
 							</div>
 							<div class="mb-4 position-relative">
 								<label class="mb-1 text-dark">Password</label>
-								<input type="password" id="dz-password" class="form-control" value="" placeholder="********">
+								<input type="password" id="dz-password" class="form-control" value="" name="password" placeholder="********">
 								<span class="show-pass eye">
 								
 									<i class="fa fa-eye-slash"></i>
@@ -54,7 +59,7 @@
 							<div class="form-row d-flex justify-content-between mt-4 mb-2">
 								<div class="mb-4">
 									<div class="form-check custom-checkbox mb-3">
-										<input type="checkbox" class="form-check-input" id="customCheckBox1" required="">
+										<input type="checkbox" class="form-check-input" id="customCheckBox1">
 										<label class="form-check-label" for="customCheckBox1">Remember me</label>
 									</div>
 								</div>
@@ -65,16 +70,6 @@
 							<div class="text-center mb-4">
 								<button type="submit" class="btn btn-outline-danger btn-block">Sign In</button>
 							</div>
-							{{-- <h6 class="login-title"><span>Or continue with</span></h6> --}}
-							
-							{{-- <div class="mb-3">
-								<ul class="d-flex align-self-center justify-content-center">
-									<li><a target="_blank" href="https://www.facebook.com/" class="fab fa-facebook-f btn-facebook"></a></li>
-									<li><a target="_blank" href="https://www.google.com/" class="fab fa-google-plus-g btn-google-plus mx-2"></a></li>
-									<li><a target="_blank" href="https://www.linkedin.com/" class="fab fa-linkedin-in btn-linkedin me-2"></a></li>
-									<li><a target="_blank" href="https://twitter.com/" class="fab fa-twitter btn-twitter"></a></li>
-								</ul>
-							</div> --}}
 							<p class="text-center">Not registered?  
 								<a class="btn-link text-primary" href="{{ route ('signup')}}">Register</a>
 							</p>
@@ -112,10 +107,52 @@
 <!--**********************************
 	Scripts
 ***********************************-->
+ @if (session('success'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 8000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            title: "Success",
+            icon: "success",
+            text: "{{session('success') }}",
+            iconColor: '#3085d6',
+            background: '#fff',
+        });
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 10000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            title: "Error",
+            icon: "error",
+            text: "{{session('error') }}",
+            iconColor: '#3085d6',
+            background: '#fff',
+        });
+    </script>
+@endif
 <!-- Required vendors -->
  <script src="{{asset('assets/vendor/global/global.min.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('assets/js/deznav-init.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('assets/js/demo.js')}}"></script>
   <script src="{{asset('assets/js/custom.js')}}"></script>
 <script src="{{asset('assets/js/styleSwitcher.js')}}"></script>
